@@ -4,8 +4,8 @@
 \*-----------------------------------*/
 :root {
   /**
-     * colors
-     */
+       * colors
+       */
   --maximum-blue-green_10: hsla(185, 75%, 45%, 0.1);
   --rich-black-fogra-29: hsl(217, 28%, 9%);
   --gray-x-11-gray: hsl(0, 0%, 74%);
@@ -20,8 +20,8 @@
   --black: hsl(0, 0%, 0%);
   --onyx: hsl(0, 0%, 27%);
   /**
-     * typography
-     */
+       * typography
+       */
   --ff-roboto: "Roboto", sans-serif;
   --ff-josefin-sans: "Josefin Sans", sans-serif;
   --fs-1: 3rem;
@@ -37,21 +37,21 @@
   --fw-600: 600;
   --fw-700: 700;
   /**
-     * transition
-     */
+       * transition
+       */
   --transition-1: 0.25s ease;
   --transition-2: 0.5s ease;
   --cubic-out: cubic-bezier(0.51, 0.03, 0.64, 0.28);
   --cubic-in: cubic-bezier(0.33, 0.85, 0.56, 1.02);
   /**
-     * spacing
-     */
+       * spacing
+       */
   --section-padding: 60px;
 }
 
 /*-----------------------------------*\
-   * #RESET
-  \*-----------------------------------*/
+     * #RESET
+    \*-----------------------------------*/
 *,
 *::before,
 *::after {
@@ -127,8 +127,8 @@ body {
 }
 
 /*-----------------------------------*\
- * #REUSED STYLE
-\*-----------------------------------*/
+   * #REUSED STYLE
+  \*-----------------------------------*/
 .container {
   padding-inline: 15px;
 }
@@ -545,8 +545,8 @@ body {
 }
 
 /*-----------------------------------*\
- * #HERO
-\*-----------------------------------*/
+   * #HERO
+  \*-----------------------------------*/
 .hero {
   background-repeat: no-repeat;
   background-size: cover;
@@ -577,8 +577,8 @@ body {
 }
 
 /*-----------------------------------*\
- * #PRODUCTS
-\*-----------------------------------*/
+   * #PRODUCTS
+  \*-----------------------------------*/
 .product .section-title {
   text-align: center;
   margin-bottom: 25px;
@@ -597,8 +597,80 @@ body {
 }
 
 /*-----------------------------------*\
- * #FOOTER
+ * #Table
 \*-----------------------------------*/
+.table .text {
+  width: 260px;
+  border-style: groove;
+  border-bottom-width: thin;
+  border-right-width: thin;
+  padding: 15px 15px;
+  font-weight: 500;
+  font-size: medium;
+}
+
+.table .head {
+  background-color: darkgrey;
+  text-align: center;
+  font-weight: bold;
+  width: 100vh;
+}
+
+/*-----------------------------------*\
+ * #SERVICE
+\*-----------------------------------*/
+.service-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding-inline: 30px;
+}
+
+.service-item {
+  width: 220px;
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.service-card .card-icon {
+  background: var(--bittersweet);
+  min-width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.service-card .card-icon img {
+  filter: brightness(0) invert(1);
+  width: 60%;
+  height: auto;
+}
+
+.service-card .card-title {
+  font-size: var(--fs-6);
+  margin-bottom: 8px;
+}
+
+.service-card .card-text {
+  color: var(--onyx);
+  font-family: var(--ff-roboto);
+  font-size: var(--fs-7);
+}
+
+.service-card .card-text span {
+  display: inline-block;
+  color: var(--bittersweet);
+}
+
+/*-----------------------------------*\
+   * #FOOTER
+  \*-----------------------------------*/
 .footer {
   font-family: var(--ff-roboto);
 }
@@ -740,8 +812,8 @@ a.footer-link:is(:hover, :focus) {
 }
 
 /*-----------------------------------*\
- * #GO TOP
-\*-----------------------------------*/
+   * #GO TOP
+  \*-----------------------------------*/
 .go-top-btn {
   position: fixed;
   bottom: 20px;
@@ -768,21 +840,21 @@ a.footer-link:is(:hover, :focus) {
 }
 
 /*-----------------------------------*\
- * #MEDIA QUERIES
-\*-----------------------------------*/
+   * #MEDIA QUERIES
+  \*-----------------------------------*/
 @media (min-width: 570px) {
   /**
-   * CUSTOM PROPERTY
-   */
+     * CUSTOM PROPERTY
+     */
   :root {
     /**
-     * typography
-     */
+       * typography
+       */
     --fs-1: 4rem;
   }
   /**
-   * REUSED STYLE
-   */
+     * REUSED STYLE
+     */
   .container {
     max-width: 650px;
     width: 100%;
@@ -792,20 +864,20 @@ a.footer-link:is(:hover, :focus) {
     min-width: calc(50% - 12.5px);
   }
   /**
-   * HERO
-   */
+     * HERO
+     */
   .hero-text {
     font-size: var(--fs-7);
   }
   /**
-   * PRODUCTS
-   */
+     * PRODUCTS
+     */
   .product-list {
     grid-template-columns: 1fr 1fr;
   }
   /**
-   * FOOTER
-   */
+     * FOOTER
+     */
   .footer-brand .logo {
     margin-bottom: 0;
   }
@@ -829,8 +901,8 @@ a.footer-link:is(:hover, :focus) {
     --fs-5: 2rem;
   }
   /**
-   * GO TOP
-   */
+     * GO TOP
+     */
   .go-top-btn {
     padding: 15px;
     border-width: 6px;
@@ -846,8 +918,8 @@ a.footer-link:is(:hover, :focus) {
     min-width: calc(33.33% - 16.66px);
   }
   /**
-   * HEADER
-   */
+     * HEADER
+     */
   .nav-open-btn,
   .nav-close-btn,
   .navbar .logo,
@@ -898,14 +970,14 @@ a.footer-link:is(:hover, :focus) {
     right: -12px;
   }
   /**
-    * HERO
-    */
+      * HERO
+      */
   .hero {
     height: 480px;
   }
   /**
-    * PRODUCTS
-    */
+      * PRODUCTS
+      */
   .product-list {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -913,24 +985,24 @@ a.footer-link:is(:hover, :focus) {
 }
 @media (min-width: 1200px) {
   /**
-   * CUSTOM PROPERTY
-   */
+     * CUSTOM PROPERTY
+     */
   :root {
     /**
-     * typography
-     */
+       * typography
+       */
     --fs-1: 5rem;
     --fs-2: 3.6rem;
   }
   /**
-   * REUSED STYLE
-   */
+     * REUSED STYLE
+     */
   .container {
     max-width: 1280px;
   }
   /**
-   * HERO
-   */
+     * HERO
+     */
   .hero {
     height: 580px;
   }
@@ -942,15 +1014,32 @@ a.footer-link:is(:hover, :focus) {
     max-width: 50ch;
   }
   /**
-   * PRODUCTS
-   */
+     * PRODUCTS
+     */
   .product-list {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
+  /*-----------------------------------*\
+   * #Table
+  \*-----------------------------------*/
+  .table .text {
+    width: 260px;
+    border-style: groove;
+    border-bottom-width: thin;
+    border-right-width: thin;
+    padding: 15px 15px;
+    font-weight: 500;
+    font-size: medium;
+  }
+  .table .head {
+    background-color: darkgrey;
+    text-align: center;
+    font-weight: bold;
+  }
   /**
-   * FOOTER
-   */
+     * FOOTER
+     */
   .footer-link-box {
     grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
     gap: 50px;
