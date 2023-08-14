@@ -2,7 +2,7 @@ function renderList(modelList) {
   var contentHTML = "";
   for (var index = 0; index < modelList.length; index++) {
     var productModel = modelList[index];
-    contentHTML += `
+    contentHTML += ` 
 <li class="product-item">
     <div class="product-card" tabindex="0">
 
@@ -69,19 +69,52 @@ function tatLoading() {
   document.querySelector("#spinner").style.display = "none";
 }
 
-function locThongtin (arrProduct) {
-    var listFilter = [];
-    var loaitimkiem = document.getElementById("productType").value;
-    for(var index = 0; index < arrProduct.length; index++){
-        var product = arrProduct[index];
-        if(product.type == loaitimkiem || loaitimkiem == "all") {
-            listFilter.push(product);
-        }
+function locThongtin(arrProduct) {
+  var listFilter = [];
+  var loaitimkiem = document.getElementById("productType").value;
+  for (var index = 0; index < arrProduct.length; index++) {
+    var product = arrProduct[index];
+    if (product.type == loaitimkiem || loaitimkiem == "all") {
+      listFilter.push(product);
     }
-    renderList(listFilter);
+  }
+  renderList(listFilter);
 }
 
-// function buyProduct () {
+function rendercart(buyList) {
+  var contentHTML = "";
+  for (var index = 0; index < buyList.length; index++) {
+    var Product = buyList[index];
+    contentHTML += `
+    <tr>
+        <td class= "text item">${Product.id}</td>
+        <td class= "text item">${Product.name}</td>
+        <td class= "text item">${Product.price}</td>
+        <td class= "text ">${Product.quatity}</td>
+        <td class= "text ">
+            <button class="btn but-mua" onclick="muathem('${index}')">Tăng</button>
+            <button class="btn but-xem" data-toggle="modal" data-target="#myModal"  onclick="giảm('${index}')">giảm</button>
+        </td>
+    </tr>
+        `;
+  }
+  document.querySelector("#tableProductCart").innerHTML = contentHTML;
+}
 
-// }
+var arrBuyitem = [];
+function buyProduct(item) {
+  arrBuyitem.push(item);
+  rendercart(arrBuyitem);
+}
 
+function increaseQuantity(index) {
+  arrBuyitem[index].quantity++;
+  rendercart(arrBuyitem);
+}
+
+function decreaseQuantity(index) {
+  if (arrBuyitem[index].quantity > 1) {
+    arrBuyitem[index].quantity--;
+    rendercart(arrBuyitem);
+  }
+}

@@ -90,6 +90,7 @@ ion-icon {
   display: block;
 }
 
+
 button,
 input {
   font: inherit;
@@ -182,8 +183,8 @@ body {
   font-size: var(--fs-5);
   display: flex;
   align-items: center;
-  gap: 5px;
-  padding: 14px 25px;
+  gap: 2px;
+  padding: 5px 5px;
   border: 1px solid var(--border-color, var(--bittersweet));
 }
 
@@ -624,11 +625,30 @@ body {
   background-color:darkgrey;
   text-align: center;
   font-weight:bold;
-  width: 100vh;
+  width: 100px;
 
 }
-
-
+.item {
+  font-size: 20px;
+}
+.but-mua{
+  margin-bottom: 20px;
+  border-style: none;
+  
+  border-bottom-width:thin;;
+  border-right-width: thin;
+  border-top-width:thin;
+  border-left-width:thin ;
+}
+.but-xem{
+  margin-right:10px;
+  margin-bottom: 20px;
+  border-style: none;
+  border-bottom-width:thin;;
+  border-right-width: thin;
+  border-top-width:thin;
+  border-left-width:thin ;
+}
 
 /*-----------------------------------*\
  * #SERVICE
@@ -1089,22 +1109,6 @@ a.footer-link:is(:hover, :focus) {
   /*-----------------------------------*\
  * #Table
 \*-----------------------------------*/
-  .table .text {
-    width: 260px;
-    border-style: groove;
-    border-bottom-width: thin;
-    border-right-width: thin;
-    padding: 15px 15px;
-    font-weight: 500;
-    font-size: medium;
-  }
-
-  .table .head {
-    background-color: darkgrey;
-    text-align: center;
-    font-weight: bold;
-
-  }
 
   /**
      * FOOTER

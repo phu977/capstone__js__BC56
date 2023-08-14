@@ -71,4 +71,15 @@ function filterProducts() {
 
 function muaSP(id) {
   console.log(id);
+  axios({
+    url: `https://64c62b56c853c26efadb28af.mockapi.io/model/${id}`,
+    method: "GET",
+  })
+    .then(function (res) {
+      console.log("🚀 ~ file: main.js:79 ~ res:", res.data);
+      buyProduct(res.data);
+    })
+    .catch(function (err) {
+      console.log("🚀 ~ file: main.js:83 ~ muaSP ~ err:", err);
+    });
 }
