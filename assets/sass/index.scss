@@ -83,8 +83,6 @@ a {
 a,
 img,
 span,
-table,
-tbody,
 button,
 ion-icon {
   display: block;
@@ -612,42 +610,48 @@ body {
 /*-----------------------------------*\
  * #Table
 \*-----------------------------------*/
-.table .text{
-  width:260px;
-  border-style:groove;
+.table .text {
+  width: 260px;
+  border-style: groove;
   border-bottom-width: thin;
-  border-right-width:thin;
+  border-right-width: thin;
   padding: 15px 15px;
-  font-weight:500;
+  font-weight: 500;
   font-size: medium;
 }
-.table .head{
-  background-color:darkgrey;
+
+.table .head {
+  background-color: darkgrey;
   text-align: center;
-  font-weight:bold;
+  font-weight: bold;
   width: 100px;
 
 }
+
 .item {
   font-size: 20px;
 }
-.but-mua{
+
+.but-mua {
   margin-bottom: 20px;
   border-style: none;
-  
-  border-bottom-width:thin;;
+
+  border-bottom-width: thin;
+  ;
   border-right-width: thin;
-  border-top-width:thin;
-  border-left-width:thin ;
+  border-top-width: thin;
+  border-left-width: thin;
 }
-.but-xem{
-  margin-right:10px;
+
+.but-xem {
+  margin-right: 10px;
   margin-bottom: 20px;
   border-style: none;
-  border-bottom-width:thin;;
+  border-bottom-width: thin;
+  ;
   border-right-width: thin;
-  border-top-width:thin;
-  border-left-width:thin ;
+  border-top-width: thin;
+  border-left-width: thin;
 }
 
 /*-----------------------------------*\

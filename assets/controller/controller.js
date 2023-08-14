@@ -81,7 +81,7 @@ function locThongtin(arrProduct) {
   renderList(listFilter);
 }
 
-function rendercart(buyList) {
+function renderCart(buyList) {
   var contentHTML = "";
   for (var index = 0; index < buyList.length; index++) {
     var Product = buyList[index];
@@ -104,17 +104,17 @@ function rendercart(buyList) {
 var arrBuyitem = [];
 function buyProduct(item) {
   arrBuyitem.push(item);
-  rendercart(arrBuyitem);
+  renderCart(arrBuyitem);
 }
 
 function increaseQuantity(index) {
   arrBuyitem[index].quantity++;
-  rendercart(arrBuyitem);
+  renderCart(arrBuyitem);
 }
 
 function decreaseQuantity(index) {
   if (arrBuyitem[index].quantity > 1) {
     arrBuyitem[index].quantity--;
-    rendercart(arrBuyitem);
+    renderCart(arrBuyitem);
   }
 }
