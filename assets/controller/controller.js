@@ -68,6 +68,9 @@ function batLoading() {
 function tatLoading() {
   document.querySelector("#spinner").style.display = "none";
 }
+let onSuccess = (message) => {
+  Swal.fire(message, "", "success");
+};
 
 function locThongtin(arrProduct) {
   var listFilter = [];
@@ -83,38 +86,66 @@ function locThongtin(arrProduct) {
 
 function renderCart(buyList) {
   var contentHTML = "";
+  let totalCart = 0;
   for (var index = 0; index < buyList.length; index++) {
     var Product = buyList[index];
+    var cost = CostProduct(Product.quantity, Product.price);
     contentHTML += `
     <tr>
         <td class= "text item">${Product.id}</td>
         <td class= "text item">${Product.name}</td>
         <td class= "text item">${Product.price}</td>
-        <td class= "text ">${Product.quatity}</td>
+        <td class= "text ">${Product.quantity}</td>
         <td class= "text ">
-            <button class="btn but-mua" onclick="muathem('${index}')">Tăng</button>
-            <button class="btn but-xem" data-toggle="modal" data-target="#myModal"  onclick="giảm('${index}')">giảm</button>
+            <button class="btn but-mua" onclick="muathem('${Product.id}')">Tăng</button>
+            <button class="btn but-xem" data-toggle="modal" data-target="#myModal"  onclick="giam('${Product.id}')">giảm</button>
+            <button class="btn but-xem" onclick="xoa(${Product.id})">Xóa</button>
         </td>
     </tr>
         `;
+    totalCart += cost;
   }
+  contentHTML += `
+  <tr>
+      <td colspan="4" class="text"><strong>Tổng tiền:</strong></td>
+      <td class="text"><strong>${totalCart}</strong></td>
+  </tr>
+  `;
   document.querySelector("#tableProductCart").innerHTML = contentHTML;
 }
 
 var arrBuyitem = [];
 function buyProduct(item) {
-  arrBuyitem.push(item);
+  var existingItem = arrBuyitem.find((i) => i.id === item.id);
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    item.quantity = 1;
+    arrBuyitem.push(item);
+  }
   renderCart(arrBuyitem);
 }
 
-function increaseQuantity(index) {
-  arrBuyitem[index].quantity++;
-  renderCart(arrBuyitem);
+function increaseQuantity(id) {
+  let existingItem = arrBuyitem.find((i) => i.id === id);
+  if (existingItem) {
+    existingItem.quantity++;
+    renderCart(arrBuyitem);
+  }
 }
 
-function decreaseQuantity(index) {
-  if (arrBuyitem[index].quantity > 1) {
-    arrBuyitem[index].quantity--;
+function decreaseQuantity(id) {
+  var existingItem = arrBuyitem.find((i) => i.id === id);
+  if (existingItem && existingItem.quantity > 1) {
+    existingItem.quantity--;
+    renderCart(arrBuyitem);
+  }
+}
+
+function deleteProduct(id) {
+  var itemIndex = arrBuyitem.findIndex((i) => i.id === id);
+  if (itemIndex !== -1) {
+    arrBuyitem.splice(itemIndex, 1);
     renderCart(arrBuyitem);
   }
 }
