@@ -89,12 +89,12 @@ function renderCart(buyList) {
   let totalCart = 0;
   for (var index = 0; index < buyList.length; index++) {
     var Product = buyList[index];
-    var cost = CostProduct(Product.quantity, Product.price);
+    var cost = costProduct(Product.quantity, Product.price);
     contentHTML += `
     <tr>
         <td class= "text item">${Product.id}</td>
         <td class= "text item">${Product.name}</td>
-        <td class= "text item">${Product.price}</td>
+        <td class= "text item">${Product.price}$</td>
         <td class= "text ">${Product.quantity}</td>
         <td class= "text ">
             <button class="btn but-mua" onclick="muathem('${Product.id}')">Tăng</button>
@@ -108,7 +108,7 @@ function renderCart(buyList) {
   contentHTML += `
   <tr>
       <td colspan="4" class="text"><strong>Tổng tiền:</strong></td>
-      <td class="text"><strong>${totalCart}</strong></td>
+      <td class="text"><strong>${totalCart}$</strong></td>
   </tr>
   `;
   document.querySelector("#tableProductCart").innerHTML = contentHTML;
