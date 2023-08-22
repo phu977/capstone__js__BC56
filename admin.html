@@ -181,47 +181,47 @@
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">ID</span>
-                                <input type="text" placeholder="Enter  ID" required>
+                                <input type="text" placeholder="Enter  ID" required id="id">
                             </div>
                             <div class="input-box">
                                 <span class="details">NAME</span>
-                                <input type="text" placeholder="Enter  name" required>
+                                <input type="text" placeholder="Enter  name" required id="name">
                             </div>
                             <div class="input-box">
                                 <span class="details">PRICE</span>
-                                <input type="number" placeholder="Enter  price" required>
+                                <input type="number" placeholder="Enter  price" required id="price">
                             </div>
                             <div class="input-box">
                                 <span class="details">SCREEN</span>
-                                <input type="text" placeholder="Enter  screen" required>
+                                <input type="text" placeholder="Enter  screen" required id="screen">
                             </div>
                             <div class="input-box">
                                 <span class="details">BACKCAMERA</span>
-                                <input type="text" placeholder="Enter  backCamera" required>
+                                <input type="text" placeholder="Enter  backCamera" required id="backCamera">
                             </div>
                             <div class="input-box">
                                 <span class="details">FRONTCAMERA</span>
-                                <input type="text" placeholder="Confirm  frontCamera" required>
+                                <input type="text" placeholder="Confirm  frontCamera" required id="frontCamera">
                             </div>
                             <div class="input-box">
                                 <span class="details">IMAGE</span>
-                                <input type="text" placeholder="Confirm  image" required>
+                                <input type="text" placeholder="Confirm  image" required id="image">
                             </div>
                             <div class="input-box">
                                 <span class="details">DESCRIPTION</span>
-                                <input type="text" placeholder="Confirm  Description" required>
+                                <input type="text" placeholder="Confirm  Description" required id="Description">
                             </div>
                             <div class="input-box">
                                 <span class="details">Type</span>
-                                <input type="text" placeholder="Confirm  type" required>
+                                <input type="text" placeholder="Confirm  type" required id="type">
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Thêm sản phẩm</button>
-                    <button type="button" class="btn btn-warning">Cập nhật</button>
+                    <button type="button" class="btn btn-primary" onclick="themSP()" data-dismiss="modal">Thêm sản phẩm</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" onclick="updateProduct()">Cập nhật</button>
                 </div>
             </div>
         </div>
@@ -239,6 +239,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <!-- sweetalert2 js -->
+    <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.22/dist/sweetalert2.all.min.js"></script>
     <!-- axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"
         integrity="sha512-uMtXmF28A2Ab/JJO2t/vYhlaa/3ahUOgj1Zf27M5rOo8/+fcTUVH0/E0ll68njmjrLqOBjXM3V9NiPFL5ywWPQ=="

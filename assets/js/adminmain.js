@@ -84,3 +84,80 @@ function fetchProductListAdmin() {
 }
 
 fetchProductListAdmin();
+
+// thêm sản phẩm  vào server
+window.themSP = () => {
+  let product = layThongTin();
+  console.log("🚀 ~ file: adminmain.js:92 ~ product:", product);
+  axios({
+    url: BASE_URL,
+    method: "POST",
+    data: product,
+  })
+    .then((res) => {
+      console.log("🚀 ~ file: adminmain.js:98 ~ .then ~ res:", res);
+      onSuccess("thêm sản phẩm thành công");
+      fetchProductListAdmin();
+      deleteThongTinTrenForm();
+    })
+    .catch((err) => {
+      console.log("🚀 ~ file: adminmain.js:102 ~ err:", err);
+    });
+};
+
+// xóa sản phẩm trên server
+
+window.xoa = (id) => {
+  console.log("🚀 ~ file: adminmain.js:110 ~ id:", id);
+  axios({
+    url: `${BASE_URL}/${id}`,
+    method: "DELETE",
+  })
+    .then((res) => {
+      console.log("🚀 ~ file: adminmain.js:116 ~ .then ~ res:", res);
+      onSuccess("xóa sản phẩm thành công");
+      fetchProductListAdmin();
+    })
+    .catch((err) => {
+      console.log("🚀 ~ file: adminmain.js:120 ~ err:", err);
+    });
+};
+
+// chình sửa sản phẩm
+
+window.edit = (id) => {
+  $("#exampleModal").modal("show");
+  console.log("🚀 ~ file: adminmain.js:128 ~ id:", id);
+  axios({
+    url: `${BASE_URL}/${id}`,
+    method: "GET",
+  })
+    .then((res) => {
+      console.log("🚀 ~ file: adminmain.js:135 ~ .then ~ res:", res.data);
+      showThongTin(res.data);
+    })
+    .catch((err) => {
+      console.log("🚀 ~ file: adminmain.js:139 ~ err:", err);
+    });
+};
+
+// update sản phẩm
+
+window.updateProduct = () => {
+  $("#exampleModal").modal("hide");
+  let product = layThongTin();
+  axios({
+    url: `${BASE_URL}/${product.id}`,
+    method: "PUT",
+    data: product,
+  })
+    .then((res) => {
+      console.log("🚀 ~ file: adminmain.js:153 ~ .then ~ res:", res);
+      onSuccess("chỉnh sửa thành công");
+      fetchProductListAdmin();
+      deleteThongTinTrenForm();
+    })
+    .catch((err) => {
+      console.log("🚀 ~ file: adminmain.js:157 ~ err:", err);
+    });
+};

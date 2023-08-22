@@ -134,7 +134,7 @@ body {
   height: 56px;
   display: flex;
   align-items: center;
-  color: var(--blue);
+  color: var(--bittersweet);
   position: sticky;
   top: 0;
   left: 0;
@@ -206,7 +206,7 @@ body {
 }
 
 #sidebar .side-menu.top li.active a {
-  color: var(--blue);
+  color: var(--bittersweet);
 }
 
 #sidebar.hide .side-menu li a {
@@ -219,7 +219,7 @@ body {
 }
 
 #sidebar .side-menu.top li a:hover {
-  color: var(--blue);
+  color: var(--bittersweet);
 }
 
 #sidebar .side-menu li a .bx {
@@ -282,7 +282,7 @@ body {
 }
 
 #content nav .nav-link:hover {
-  color: var(--blue);
+  color: var(--bittersweet);
 }
 
 #content nav form {
@@ -315,7 +315,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: var(--blue);
+  background: var(--bittersweet);
   color: var(--light);
   font-size: 18px;
   border: none;
@@ -371,7 +371,7 @@ body {
   left: 2px;
   bottom: 2px;
   width: 21px;
-  background: var(--blue);
+  background: var(--bittersweet);
   border-radius: 50%;
   transition: all 0.3s ease;
 }
@@ -429,7 +429,7 @@ body {
   height: 36px;
   padding: 0 16px;
   border-radius: 36px;
-  background: var(--blue);
+  background: var(--bittersweet);
   color: var(--light);
   display: flex;
   justify-content: center;
@@ -482,14 +482,14 @@ body {
 }
 
 #content main .table-data .order table th {
-  padding-bottom: 12px;
+  padding: 16px 16px;
   font-size: 13px;
   text-align: left;
   border-bottom: 1px solid var(--grey);
 }
 
 #content main .table-data .order table td {
-  padding: 16px 0;
+  padding: 16px 16px;
 }
 
 #content main .table-data .order table tr td:first-child {
@@ -509,14 +509,6 @@ body {
 
 #content main .table-data .order table tbody tr:hover {
   background: var(--grey);
-}
-
-#content main .table-data .order table tr td .status {
-  font-size: 10px;
-  padding: 6px 16px;
-  color: var(--light);
-  border-radius: 20px;
-  font-weight: 700;
 }
 
 /* MAIN */
@@ -594,9 +586,6 @@ form .input-box span.details {
   #content nav form.show ~ .notification,
   #content nav form.show ~ .profile {
     display: none;
-  }
-  #content main .box-info {
-    grid-template-columns: 1fr;
   }
   #content main .table-data .head {
     min-width: 420px;
