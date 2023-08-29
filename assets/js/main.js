@@ -78,14 +78,23 @@ function muaSP(id) {
   })
     .then(function (res) {
       console.log("🚀 ~ file: main.js:79 ~ res:", res.data);
-      onSuccess("sản phẩm đã được mua")
+      localStorage.setItem("arrProduct", JSON.stringify(res.data));
+      onSuccess("sản phẩm đã được mua");
       buyProduct(res.data);
     })
     .catch(function (err) {
       console.log("🚀 ~ file: main.js:83 ~ muaSP ~ err:", err);
     });
-}
+}``
 
+window.onload = function () {
+  var storedProduct = localStorage.getItem("arrProduct");
+  if (storedProduct) {
+    var produtCart = JSON.parse(storedProduct);
+    var arrCart = [produtCart];
+    renderCart(arrCart);
+  }
+};
 function muathem(id) {
   axios({
     url: `${BASE_CART}/${id}`,
@@ -93,7 +102,7 @@ function muathem(id) {
   })
     .then((res) => {
       console.log("🚀 ~ file: main.js:94 ~ .then ~ res:", res.data);
-      onSuccess("sản phẩm đã được mua thêm")
+      onSuccess("sản phẩm đã được mua thêm");
       increaseQuantity(res.data.id);
     })
     .catch((err) => {
@@ -124,10 +133,8 @@ function xoa(id) {
       console.log("🚀 ~ file: main.js:122 ~ .then ~ res:", res);
       onSuccess("Xóa thành công");
       deleteProduct(res.data.id);
-      
     })
     .catch((err) => {
       console.log("🚀 ~ file: main.js:127 ~ xoa ~ err:", err);
-      
     });
 }

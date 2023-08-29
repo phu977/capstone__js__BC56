@@ -20,10 +20,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!--  preload banner -->
     <link rel="preload" href="./assets/img/hero-banner.png" as="image">
-    <!-- Boxicons -->
+
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- admin css -->
     <link rel="stylesheet" href="./css/admin.css">
@@ -45,7 +46,7 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="./index.html">
                     <i class='bx bxs-shopping-bag-alt'></i>
                     <span class="text">My Store</span>
                 </a>
@@ -133,6 +134,17 @@
                 </button>
             </div>
 
+            <div class="form-group mt-2">
+                <h3>Tìm kiếm thông tin sản phẩm </h3>
+                <div class="input-group mb-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="keyword" placeholder="Nhập vào tên sản phẩm "
+                            oninput="filterNameProduct()">
+                        <label for="keyword">Tên sản phẩm </label>
+                    </div>
+                </div>
+            </div>
+
 
 
 
@@ -155,7 +167,6 @@
                             </tr>
                         </thead>
                         <tbody id="tableAdminProduct">
-
                         </tbody>
                     </table>
                 </div>
@@ -177,7 +188,7 @@
                     </button>
                 </div>
                 <div class="modal-body content">
-                    <form action="#">
+                    <form action="#" id="form">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">ID</span>
@@ -186,42 +197,54 @@
                             <div class="input-box">
                                 <span class="details">NAME</span>
                                 <input type="text" placeholder="Enter  name" required id="name">
+                                <p data-error-required="name" class="text-danger"></p>
                             </div>
                             <div class="input-box">
                                 <span class="details">PRICE</span>
                                 <input type="number" placeholder="Enter  price" required id="price">
+                                <p data-error-required="price" class="text-danger"></p>
+                                <p data-error-number="numberPrice" class="text-info"></p>
                             </div>
                             <div class="input-box">
                                 <span class="details">SCREEN</span>
                                 <input type="text" placeholder="Enter  screen" required id="screen">
+                                <p data-error-required="screen" class="text-danger"></p>
                             </div>
                             <div class="input-box">
                                 <span class="details">BACKCAMERA</span>
                                 <input type="text" placeholder="Enter  backCamera" required id="backCamera">
+                                <p data-error-required="backCamera" class="text-danger"></p>
                             </div>
                             <div class="input-box">
                                 <span class="details">FRONTCAMERA</span>
                                 <input type="text" placeholder="Confirm  frontCamera" required id="frontCamera">
+                                <p data-error-required="frontCamera" class="text-danger"></p>
                             </div>
                             <div class="input-box">
                                 <span class="details">IMAGE</span>
                                 <input type="text" placeholder="Confirm  image" required id="image">
+                                <p data-error-required="image" class="text-danger"></p>
                             </div>
                             <div class="input-box">
                                 <span class="details">DESCRIPTION</span>
                                 <input type="text" placeholder="Confirm  Description" required id="Description">
+                                <p data-error-required="Description" class="text-danger"></p>
                             </div>
                             <div class="input-box">
                                 <span class="details">Type</span>
                                 <input type="text" placeholder="Confirm  type" required id="type">
+                                <p data-error-required="type" class="text-danger"></p>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="themSP()" data-dismiss="modal">Thêm sản phẩm</button>
-                    <button type="button" class="btn btn-warning" data-dismiss="modal" onclick="updateProduct()">Cập nhật</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="resetForm()">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="themSP()" data-dismiss="modal">Thêm sản
+                        phẩm</button>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" onclick="updateProduct()">Cập
+                        nhật</button>
                 </div>
             </div>
         </div>
@@ -247,6 +270,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- controlleradmin.js -->
     <script src="./assets/controller/controlleradmin.js"></script>
+    <!-- methods.js -->
+    <script src="./assets/ulti/methods.js"></script>
     <!-- adminmain.js -->
     <script src="./assets/js/adminmain.js"></script>
 </body>

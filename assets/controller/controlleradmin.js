@@ -73,7 +73,7 @@ let showThongTin = (data) => {
   document.getElementById("type").value = type;
 };
 
-let deleteThongTinTrenForm = () => { 
+let deleteThongTinTrenForm = () => {
   document.getElementById("id").value = "";
   document.getElementById("name").value = "";
   document.getElementById("price").value = "";
@@ -83,4 +83,34 @@ let deleteThongTinTrenForm = () => {
   document.getElementById("image").value = "";
   document.getElementById("Description").value = "";
   document.getElementById("type").value = "";
- }
+};
+
+let filterProduct = (arrItem) => {
+  var listProductFilter = [];
+  var tuKhoa = document.querySelector("#keyword").value;
+  if (tuKhoa == "") {
+    renderListAdminProduct(arrItem);
+    return;
+  } else {
+    for (var index = 0; index < arrItem.length; index++) {
+      var item = arrItem[index].name;
+      item = stringToSlug(item);
+      console.log(
+        "🚀 ~ file: controlleradmin.js:99 ~ filterProduct ~ item:",
+        item
+      );
+
+      tuKhoa = stringToSlug(tuKhoa);
+      console.log(
+        "🚀 ~ file: controlleradmin.js:100 ~ filterProduct ~ tuKhoa:",
+        tuKhoa
+      );
+
+      if (item == tuKhoa) {
+        listProductFilter.push(arrItem[index]);
+      }
+    }
+  }
+
+  renderListAdminProduct(listProductFilter);
+};

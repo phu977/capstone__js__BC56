@@ -82,13 +82,25 @@ function fetchProductListAdmin() {
       );
     });
 }
-
 fetchProductListAdmin();
 
 // thêm sản phẩm  vào server
 window.themSP = () => {
   let product = layThongTin();
   console.log("🚀 ~ file: adminmain.js:92 ~ product:", product);
+  var valid =
+    validation.kiemTraMangRong(product.name, "name") &
+    validation.kiemTraMangRong(product.price, "price") &
+    validation.kiemTraMangRong(product.screen, "screen") &
+    validation.kiemTraMangRong(product.backCamera, "backCamera") &
+    validation.kiemTraMangRong(product.frontCamera, "frontCamera") &
+    validation.kiemTraMangRong(product.img, "image") &
+    validation.kiemTraMangRong(product.desc, "Description") &
+    validation.kiemTraMangRong(product.type, "type");
+  valid = validation.kiemTraNumber(product.price, "numberPrice");
+  if (!valid) {
+    return;
+  }
   axios({
     url: BASE_URL,
     method: "POST",
@@ -161,3 +173,30 @@ window.updateProduct = () => {
       console.log("🚀 ~ file: adminmain.js:157 ~ err:", err);
     });
 };
+// reset form khi bấm nút close
+window.resetForm = () => {
+  document.getElementById("form").reset();
+  $("#exampleModal").modal("hide");
+};
+
+// Lọc sản phảm theo tên
+
+function filterNameProduct() {
+  axios({
+    url: BASE_URL,
+    method: "GET",
+  })
+    .then((res) => {
+      console.log(
+        "🚀 ~ file: adminmain.js:190 ~ .then ~ res:",
+        res.data
+      );
+      filterProduct(res.data);
+    })
+    .catch((err) => {
+      console.log(
+        "🚀 ~ file: adminmain.js:195 ~ filterNameProduct ~ err:",
+        err
+      );
+    });
+}

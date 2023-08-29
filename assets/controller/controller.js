@@ -83,7 +83,7 @@ function locThongtin(arrProduct) {
   }
   renderList(listFilter);
 }
-
+let arrProduct = [];
 function renderCart(buyList) {
   var contentHTML = "";
   let totalCart = 0;
@@ -105,10 +105,14 @@ function renderCart(buyList) {
         `;
     totalCart += cost;
   }
+  console.log(arrProduct);
   contentHTML += `
   <tr>
       <td colspan="4" class="text"><strong>Tổng tiền:</strong></td>
       <td class="text"><strong>${totalCart}$</strong></td>
+  </tr>
+  <tr>
+      <td colspan="5" class="text"><button class="btn but-xem text-center" onclick="clearCart()">xóa tất cả </button></td>
   </tr>
   `;
   document.querySelector("#tableProductCart").innerHTML = contentHTML;
@@ -125,7 +129,6 @@ function buyProduct(item) {
   }
   renderCart(arrBuyitem);
 }
-
 function increaseQuantity(id) {
   let existingItem = arrBuyitem.find((i) => i.id === id);
   if (existingItem) {
@@ -148,4 +151,8 @@ function deleteProduct(id) {
     arrBuyitem.splice(itemIndex, 1);
     renderCart(arrBuyitem);
   }
+}
+function clearCart() {
+  arrProduct = []; // Assuming arrProduct is your array that holds the cart products
+  renderCart(arrProduct); // Update the cart display after clearing
 }
