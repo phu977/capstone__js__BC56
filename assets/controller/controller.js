@@ -127,7 +127,6 @@ function buyProduct(item) {
     item.quantity = 1;
     arrBuyitem.push(item);
   }
-  localStorage.setItem("arrProduct", JSON.stringify(arrBuyitem));
   renderCart(arrBuyitem);
 }
 function increaseQuantity(id) {
