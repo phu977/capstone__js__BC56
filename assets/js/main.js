@@ -85,7 +85,8 @@ function muaSP(id) {
     .catch(function (err) {
       console.log("🚀 ~ file: main.js:83 ~ muaSP ~ err:", err);
     });
-}``
+}
+``;
 
 window.onload = function () {
   var storedProduct = localStorage.getItem("arrProduct");
@@ -95,6 +96,7 @@ window.onload = function () {
     renderCart(arrCart);
   }
 };
+
 function muathem(id) {
   axios({
     url: `${BASE_CART}/${id}`,
